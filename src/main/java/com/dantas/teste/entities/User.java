@@ -20,18 +20,18 @@ public class User implements Serializable {
 	
 	private String name;
 	private String email;
-	private int cpf;
+	private String cpf;
 	
 	public User() {
 		
 	}
 
-	public User(Long id, String name, String email, int cpf) {
+	public User(Long id, String name, String email, String cpf) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.email = email;
-		this.cpf = cpf;
+		setCpf(cpf);
 	}
 
 	public Long getId() {
@@ -58,12 +58,18 @@ public class User implements Serializable {
 		this.email = email;
 	}
 
-	public int getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 
-	public void setCpf(int cpf) {
+	public void setCpf(String cpf) {
+		
+		//Encontrar regex
+		cpf = cpf.replaceAll("\\.", "").replaceAll("\\-", "");
+		
 		this.cpf = cpf;
+		System.out.println(cpf);
+		
 	}
 
 	@Override
