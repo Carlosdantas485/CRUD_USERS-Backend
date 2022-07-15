@@ -25,7 +25,7 @@ public class User implements Serializable {
 	public User() {
 		
 	}
-
+	
 	public User(Long id, String name, String email, String cpf) {
 		super();
 		this.id = id;
@@ -62,14 +62,8 @@ public class User implements Serializable {
 		return cpf;
 	}
 
-	public void setCpf(String cpf) {
-		
-		//Encontrar regex
-		cpf = cpf.replaceAll("\\.", "").replaceAll("\\-", "");
-		
-		this.cpf = cpf;
-		System.out.println(cpf);
-		
+	public void setCpf(String cpf) {	
+		this.cpf = cpf.replaceAll("\\.", "").replaceAll("\\-", "");	
 	}
 
 	@Override
