@@ -11,7 +11,7 @@
 ### Clone the repository
 
 ```
-git clone https://github.com/Carlosdantas485/Springboot-deposit.git
+git clone https://github.com/Carlosdantas485/CRUD_USERS-Backend.git
 ```
 
 ### Build the project
