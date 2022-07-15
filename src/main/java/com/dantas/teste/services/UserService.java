@@ -18,8 +18,8 @@ public class UserService {
 		return repository.findAll();
 	}
 
-	public User findById(Long id) {
-		Optional<User> obj = repository.findById(id);
+	public User findById(Long cpf) {
+		Optional<User> obj = repository.findById(cpf);
 		return obj.get();
 	}
 
@@ -33,13 +33,13 @@ public class UserService {
 		return repository.save(obj);
 	}
 
-	public void delet(Long id) {
-		repository.deleteById(id);
+	public void delet(Long cpf) {
+		repository.deleteById(cpf);
 
 	}
 
-	public User update(Long id, User obj) {
-		User entity = repository.getReferenceById(id);
+	public User update(Long cpf, User obj) {
+		User entity = repository.getReferenceById(cpf);
 		updateData(entity, obj);
 		return repository.save(entity);
 	}
@@ -47,6 +47,6 @@ public class UserService {
 	private void updateData(User entity, User obj) {
 		entity.setName(obj.getName());
 		entity.setEmail(obj.getEmail());
-		entity.setCpf(obj.getCpf());	}
+	}
 	
 }

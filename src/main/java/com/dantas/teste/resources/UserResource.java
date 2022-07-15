@@ -39,33 +39,33 @@ public class UserResource {
 		return ResponseEntity.ok().body(list);
 	}
 
-	@GetMapping(value = "/{id}")
-	public ResponseEntity<User> findById(@PathVariable Long id) {
-		User obj = service.findById(id);
+	@GetMapping(value = "/{cpf}")
+	public ResponseEntity<User> findById(@PathVariable Long cpf) {
+		User obj = service.findById(cpf);
 		return ResponseEntity.ok().body(obj);
 	}
 	
 	@RequestMapping(value = "/cpf/{cpf}", method=RequestMethod.GET)
-	public @ResponseBody User filter(@PathVariable long cpf) {
+	public @ResponseBody User filter(@PathVariable Long cpf) {
 		return userRepository.findByCpf(cpf);
 	}
 	
 	@PostMapping
 	public ResponseEntity<User> insert(@RequestBody User obj) {
 		obj = service.insert(obj);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{cpf}").buildAndExpand(obj.getCpf()).toUri();
 		return ResponseEntity.created(uri).body(obj);
 	}
 
-	@DeleteMapping(value = "/{id}")
-	public ResponseEntity<Void> delete(@PathVariable Long id) {
-		service.delet(id);
+	@DeleteMapping(value = "/{cpf}")
+	public ResponseEntity<Void> delete(@PathVariable Long cpf) {
+		service.delet(cpf);
 		return ResponseEntity.noContent().build();
 	}
 
-	@PutMapping(value = "/{id}")
-	public ResponseEntity<User> update(@PathVariable Long id, @RequestBody User obj) {
-		obj = service.update(id, obj);
+	@PutMapping(value = "/{cpf}")
+	public ResponseEntity<User> update(@PathVariable Long cpf, @RequestBody User obj) {
+		obj = service.update(cpf, obj);
 		return ResponseEntity.ok().body(obj);
 	}
 }

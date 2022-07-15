@@ -4,8 +4,6 @@ import java.io.Serializable;
 import java.util.Objects;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -15,31 +13,29 @@ public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long cpf;
 	
 	private String name;
 	private String email;
-	private long cpf;
+	
 	
 	public User() {
 		
 	}
 
-	public User(Long id, String name, String email, long cpf) {
+	public User(Long cpf, String name, String email) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.email = email;
 		setCpf(cpf);
 	}
 
-	public Long getId() {
-		return id;
+	public long getCpf() {
+		return cpf;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setCpf(long cpf) {	
+		this.cpf = cpf;	
 	}
 
 	public String getName() {
@@ -58,17 +54,9 @@ public class User implements Serializable {
 		this.email = email;
 	}
 
-	public long getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(long cpf) {	
-		this.cpf = cpf;	
-	}
-
 	@Override
 	public int hashCode() {
-		return Objects.hash(id);
+		return Objects.hash(cpf);
 	}
 
 	@Override
@@ -80,7 +68,7 @@ public class User implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
-		return Objects.equals(id, other.id);
-	}
+		return Objects.equals(cpf, other.cpf);
+	}	
 
 }
