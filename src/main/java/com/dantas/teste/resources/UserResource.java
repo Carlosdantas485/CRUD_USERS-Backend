@@ -46,7 +46,7 @@ public class UserResource {
 	}
 	
 	@RequestMapping(value = "/cpf/{cpf}", method=RequestMethod.GET)
-	public @ResponseBody User filter(@PathVariable String cpf) {
+	public @ResponseBody User filter(@PathVariable long cpf) {
 		return userRepository.findByCpf(cpf);
 	}
 	

@@ -8,5 +8,5 @@ import com.dantas.teste.entities.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 	
-	User findByCpf(String cpf);
+	User findByCpf(long cpf);
 }

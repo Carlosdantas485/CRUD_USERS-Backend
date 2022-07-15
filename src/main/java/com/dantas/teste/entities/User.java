@@ -20,13 +20,13 @@ public class User implements Serializable {
 	
 	private String name;
 	private String email;
-	private String cpf;
+	private long cpf;
 	
 	public User() {
 		
 	}
-	
-	public User(Long id, String name, String email, String cpf) {
+
+	public User(Long id, String name, String email, long cpf) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -58,12 +58,12 @@ public class User implements Serializable {
 		this.email = email;
 	}
 
-	public String getCpf() {
+	public long getCpf() {
 		return cpf;
 	}
 
-	public void setCpf(String cpf) {	
-		this.cpf = cpf.replaceAll("\\.", "").replaceAll("\\-", "");	
+	public void setCpf(long cpf) {	
+		this.cpf = cpf;	
 	}
 
 	@Override
